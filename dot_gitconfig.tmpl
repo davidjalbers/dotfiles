@@ -1,0 +1,13 @@
+[user]
+	name = David Julian Albers
+	email = dev@davidjalbers.com
+	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICf3f/QQ0YTecDArfe6ZuP87p3MvxOi0+MX93IQqhZ/A
+[commit]
+	gpgSign = true
+[tag]
+	forceSignAnnotated = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = {{ if eq .chezmoi.os "darwin" }}/Applications/1Password.app/Contents/MacOS/op-ssh-sign{{ else }}/opt/1Password/op-ssh-sign{{ end }}
+	allowedSignersFile = "{{ .chezmoi.homeDir }}/.ssh/allowed_signers"
