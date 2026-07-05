@@ -2,10 +2,19 @@
 	name = David Julian Albers
 	email = dev@davidjalbers.com
 	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICf3f/QQ0YTecDArfe6ZuP87p3MvxOi0+MX93IQqhZ/A
+[init]
+	defaultBranch = main
 [commit]
 	gpgSign = true
 [tag]
 	forceSignAnnotated = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = false
 [gpg]
 	format = ssh
 [gpg "ssh"]
