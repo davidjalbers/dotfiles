@@ -1,4 +1,4 @@
-export PATH="/Users/albers/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 alias ll="ls -la"
 alias c="clear"
