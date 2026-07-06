@@ -1,11 +1,68 @@
-export PATH="$HOME/.local/bin:$PATH"
+# ~/.zshrc - sourced after .zshenv, for interactive shells only.
 
+########################## PATH AND TOOLS ######################################
+export PATH="$HOME/.local/bin:$PATH"
+have brew && eval "$(brew shellenv)"      # PATH, HOMEBREW_PREFIX, …
+have mise && eval "$(mise activate zsh)"  # runtime versions
+
+############################## HISTORY #########################################
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000                 # kept in memory
+SAVEHIST=10000                 # persisted to disk
+setopt hist_ignore_all_dups    # drop the older copy of a repeated command
+setopt share_history           # live history across running shells
+
+########################### KEY BINDINGS ########################################
+bindkey -e                     # emacs mode (pinned; EDITOR=vi would flip it)
+
+############################## ALIASES #########################################
 alias ll="ls -la"
 alias c="clear"
-
-eval "$(brew shellenv)"
-
-eval "$(mise activate zsh)"
-
 alias bench='uvx --from frappe-bench bench'
 
+############################## COMPLETION ######################################
+# Configures fpath, runs compinit, configures completion behavior.
+
+# Custom paths for Homebrew-managed installs
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
+  fpath=(
+    "$HOMEBREW_PREFIX/share/zsh/site-functions"
+    "$HOMEBREW_PREFIX/share/zsh-completions"
+    $fpath
+  )
+fi
+# Custom path for Docker
+[[ -d "$HOME/.docker/completions" ]] && fpath=("$HOME/.docker/completions" $fpath)
+
+# Scans fpath. Run after fpath is fully populated
+autoload -Uz compinit
+compinit
+
+# Strategies tried on TAB: expand glob/var → match → fix typo → fuzzy.
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+# Case-insensitive + dash/underscore-flexible matching.
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+# Arrow-key-navigable menu instead of a flat list.
+zstyle ':completion:*' menu select
+# Ignore the obsolete pre-modern completion engine.
+zstyle ':completion:*' use-compctl false
+
+# Group matches by category (files, options, …).
+zstyle ':completion:*' group-name ''
+# Show each match's description where one exists.
+zstyle ':completion:*' verbose true
+# Generic placeholder for matches lacking a description.
+zstyle ':completion:*' auto-description 'specify: %d'
+# Header above each group, e.g. "Completing external command".
+zstyle ':completion:*' format 'Completing %d'
+# Footer when the match list is taller than the screen.
+zstyle ':completion:*' list-prompt   '%SAt %p: Hit TAB for more, or the character to insert%s'
+# Footer while scrolling the selection menu.
+zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+
+# Colorize listings from LS_COLORS (dircolors is GNU-only; skipped on macOS).
+have dircolors && eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+############################## PROMPT ##########################################
+have starship && eval "$(starship init zsh)"

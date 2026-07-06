@@ -1,0 +1,8 @@
+# ~/.zprofile - sourced after .zshenv, for login shells only.
+
+########################## PATH AND TOOLS ######################################
+export PATH="$HOME/.local/bin:$PATH"
+have /opt/homebrew/bin/brew && eval "$(/opt/homebrew/bin/brew shellenv)"
+# mise with --shims for login / non-interactive shells
+# (interactive shells get the full `mise activate` in ~/.zshrc)
+have mise && eval "$(mise activate zsh --shims)"

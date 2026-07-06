@@ -1,0 +1,9 @@
+# ~/.zshenv - sourced first, for every shell.
+# Keep this minimal and free of side-effects.
+# Especially don't set PATH here, since system paths are loaded after .zshenv
+
+# Keep PATH duplicate-free
+typeset -U path PATH
+
+# have <cmd> - true if <cmd> is installed (accepts a bare name or a full path).
+have() { command -v "$1" >/dev/null; }
