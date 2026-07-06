@@ -1,0 +1,104 @@
+# .chezmoiignore — target paths chezmoi must NEVER manage.
+#
+# This is a PUBLIC dotfiles repo. Secrets and machine-specific state must stay
+# out. Files are added individually, so this is primarily a guardrail against an
+# accidental recursive `chezmoi add`/`re-add` sweeping sensitive paths in.
+
+# Self
+.config/chezmoi
+
+# User data
+Desktop/
+Development/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+remnote/
+OneDrive*
+
+# Application data
+Applications/
+.spss
+
+# macOS
+.CFUserTextEncoding
+.Trash/
+**/.DS_Store
+
+# Trust
+.gnupg
+.ssh/*
+!.ssh/config
+!.ssh/allowed_signers
+
+# VPN and Tunnels
+.cisco
+.vpn
+.cloudflared
+
+# Histories
+.zsh_history
+.bash_history
+.node_repl_history
+.ts_node_repl_history
+.psql_history
+
+# AI stuff
+.copilot
+.config/github-copilot
+.claude
+.claude.json
+.claude.json.backup
+.gemini
+
+# Misc and caches
+.cache
+.terraform.d
+.mongodb
+.cagent
+.docker
+.pex
+.pub-cache
+.platformio
+.cocoapods
+.degit
+.ipython
+.jupyter
+.ansible
+.redis-insight
+.thumbnails
+.matplotlib
+.vscode
+.vscode-server
+.vscode-shared
+.zsh_sessions
+.zcompdump
+.zcompcache
+.lemminx
+.gk
+.dart
+.cups
+.terminfo
+.swiftpm
+.hawtjni
+.viminfo
+
+# Config excluded for now
+.config/configstore
+.config/jgit
+.config/medusa
+.config/raycast
+.config/uv
+.config/wireshark
+.config/filezilla
+.config/gh
+.config/mise
+.config/git
+.config/nvim
+.config/zed
+.config/rclone
+.config/op
