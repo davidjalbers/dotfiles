@@ -1,22 +1,33 @@
+# Identity and Signing
 [user]
 	name = David Julian Albers
 	email = dev@davidjalbers.com
 	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICf3f/QQ0YTecDArfe6ZuP87p3MvxOi0+MX93IQqhZ/A
-[init]
-	defaultBranch = main
 [commit]
 	gpgSign = true
 [tag]
 	forceSignAnnotated = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[pull]
-	rebase = false
 [gpg]
 	format = ssh
 [gpg "ssh"]
-	program = {{ if eq .chezmoi.os "darwin" }}/Applications/1Password.app/Contents/MacOS/op-ssh-sign{{ else }}/opt/1Password/op-ssh-sign{{ end }}
+{{- if eq .chezmoi.os "darwin" }}
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+{{- else if eq .chezmoi.os "linux" }}
+	program = /opt/1Password/op-ssh-sign
+{{- else if eq .chezmoi.os "windows" }}
+	program = "{{ .chezmoi.homeDir | replace "\\" "/" }}/AppData/Local/1Password/app/8/op-ssh-sign.exe"
+{{- end }}
 	allowedSignersFile = "{{ .chezmoi.homeDir }}/.ssh/allowed_signers"
+
+# Git LFS (Large File Support)
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+# Preferences
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
