@@ -73,6 +73,7 @@ cask "onedrive"
 cask "libreoffice"
 cask "mattermost"
 cask "microsoft-teams"
+cask "remnote"
 mas "AusweisApp", id: 948660805
 mas "Developer", id: 640199958
 mas "MacFamilyTree 10", id: 1567970985
