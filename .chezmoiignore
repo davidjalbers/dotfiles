@@ -37,6 +37,8 @@ Applications/
 .ssh/*
 !.ssh/config
 !.ssh/allowed_signers
+# contains secrets
+.config/rclone/rclone.conf
 
 # VPN and Tunnels
 .cisco
@@ -92,19 +94,17 @@ Applications/
 .viminfo
 .homebrew
 
-# Config excluded for now
+# Noise exluded from .config
+.config/cagent
 .config/configstore
-.config/jgit
-.config/medusa
+.config/op
 .config/raycast
 .config/uv
-.config/wireshark
+
+# Config excluded for now
 .config/filezilla
 .config/gh
-.config/mise
 .config/git
 .config/nvim
+.config/wireshark
 .config/zed
-.config/rclone
-.config/op
-.config/cagent
