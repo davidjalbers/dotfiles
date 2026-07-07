@@ -107,3 +107,4 @@ Applications/
 .config/zed
 .config/rclone
 .config/op
+.config/cagent
