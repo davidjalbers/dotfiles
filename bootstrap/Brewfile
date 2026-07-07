@@ -25,7 +25,6 @@ brew "k6"
 # Storage and file transfer tools
 brew "rclone"
 brew "s3cmd"
-cask "cyberduck"
 
 # Terminal and shell
 cask "ghostty"
