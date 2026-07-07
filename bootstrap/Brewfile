@@ -1,0 +1,84 @@
+# Development
+mas "Xcode", id: 497799835
+cask "fork"
+cask "visual-studio-code"
+vscode "anthropic.claude-code"
+vscode "biomejs.biome"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode-remote.vscode-remote-extensionpack"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode.remote-server"
+cask "zed"
+cask "mongodb-compass"
+
+# AI Stuff
+cask "claude"
+cask "claude-code"
+
+# ITOps
+brew "ansible"
+brew "k6"
+
+# Storage and file transfer tools
+brew "rclone"
+brew "s3cmd"
+cask "cyberduck"
+
+# Terminal and shell
+cask "ghostty"
+brew "starship"
+
+# Networking tools
+cask "tailscale-app"
+brew "wakeonlan"
+brew "nmap"
+brew "cloudflared"
+
+# Embedded development tools
+brew "platformio"
+
+# MeDocs
+cask "companion"
+cask "dante-controller"
+cask "elgato-stream-deck"
+cask "rode-central"
+cask "teamviewer"
+mas "X32-Edit", id: 6754563545
+
+# Mac Utilities
+mas "Amphetamine", id: 937984704
+mas "Blackmagic Disk Speed Test", id: 425264550
+cask "aldente"
+cask "cleanshot"
+cask "raycast"
+cask "voiceink"
+mas "Horo", id: 1437226581
+
+# CLI Utilities
+brew "rename"
+brew "wget"
+brew "yq"
+brew "mas"
+brew "skopeo"
+brew "zsh-completions"
+
+# Miscellaneous
+brew "ffmpeg"
+cask "yubico-authenticator"
+cask "thunderbird"
+cask "onedrive"
+cask "libreoffice"
+cask "mattermost"
+cask "microsoft-teams"
+mas "AusweisApp", id: 948660805
+mas "Developer", id: 640199958
+mas "MacFamilyTree 10", id: 1567970985
+mas "Microsoft Outlook", id: 985367838
+mas "Prime Video", id: 545519333
+mas "Slack", id: 803453959
+mas "Telegram", id: 747648890
+mas "Things", id: 904280696
+mas "WhatsApp", id: 310633997

@@ -1,0 +1,12 @@
+# Format:
+#   <package>                    ->  apt install <package>
+#   extrepo <name> <pkg> [pkg…]  ->  extrepo enable <name>, then apt install the pkg(s)
+#   blank lines and #-comments are ignored
+ansible
+ffmpeg
+nmap
+rclone
+rename
+s3cmd
+skopeo
+wakeonlan

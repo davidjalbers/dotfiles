@@ -7,6 +7,9 @@
 # Self
 .config/chezmoi
 
+# Plexus Bootstrap. See https://github.com/plexus-ms/bootstrap.
+bootstrap/
+
 # User data
 Desktop/
 Development/
