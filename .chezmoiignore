@@ -57,6 +57,7 @@ Applications/
 
 # Misc and caches
 .cache
+.local
 .terraform.d
 .mongodb
 .cagent
@@ -86,6 +87,7 @@ Applications/
 .swiftpm
 .hawtjni
 .viminfo
+.homebrew
 
 # Config excluded for now
 .config/configstore
