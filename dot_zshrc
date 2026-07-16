@@ -10,7 +10,7 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000                 # kept in memory
 SAVEHIST=10000                 # persisted to disk
 setopt hist_ignore_all_dups    # drop the older copy of a repeated command
-setopt share_history           # live history across running shells
+setopt inc_append_history      # save each command as it runs, but don't share across sessions
 
 ########################### KEY BINDINGS ########################################
 bindkey -e                     # emacs mode (pinned; EDITOR=vi would flip it)
