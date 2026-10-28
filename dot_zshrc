@@ -2,6 +2,7 @@
 
 ########################## PATH AND TOOLS ######################################
 export PATH="$HOME/.local/bin:$PATH"
+export PATH=/opt/homebrew/opt/libpq/bin:$PATH
 have brew && eval "$(brew shellenv)"      # PATH, HOMEBREW_PREFIX, …
 have mise && eval "$(mise activate zsh)"  # runtime versions
 
@@ -18,7 +19,7 @@ bindkey -e                     # emacs mode (pinned; EDITOR=vi would flip it)
 ############################## ALIASES #########################################
 alias ll="ls -la"
 alias c="clear"
-alias bench='uvx --from frappe-bench bench'
+alias dev='git --git-dir=$HOME/.dev.git --work-tree=$HOME/dev'
 
 ############################## COMPLETION ######################################
 # Configures fpath, runs compinit, configures completion behavior.
